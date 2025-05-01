@@ -2,7 +2,7 @@
 const express = require('express');
 const cors = require('cors');
 const puppeteer = require('puppeteer-core');
-const chrome = require('@sparticuz/chrome-aws-lambda'); // Sparticuz versiyonunu kullanıyoruz
+const chrome = require('@sparticuz/chromium'); // Sparticuz versiyonunu kullanıyoruz
 const { createClient } = require('@supabase/supabase-js');
 
 const app = express();

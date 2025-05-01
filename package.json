@@ -11,7 +11,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@sparticuz/chrome-aws-lambda": "^17.1.3",
+    "@sparticuz/chromium": "^133.0.0",
     "@supabase/supabase-js": "^2.49.4",
     "cors": "^2.8.5",
     "express": "^5.1.0",
