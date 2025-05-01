@@ -133,7 +133,7 @@ app.post('/api/generate-pdf', async (req, res) => {
        // Footer (Sayfa No Sağda, Metin Solda)
        const footerHtml = `
 <div style="box-sizing: border-box; width: 100%; font-size: 8px; padding: 10px 50px 10px 50px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #cccccc; color: #777777; font-family: 'DejaVu Sans', Arial, sans-serif;">
-   <span style="text-align: left;">İşbu ${headerData.documentType} sözleşme ${headerData.generationDate} tarihinde elektronik ortamda oluşturulmuştur.</span>
+   <span style="text-align: left;">İşbu sözleşme ${headerData.generationDate} tarihinde elektronik ortamda oluşturulmuştur.</span>
    <span style="text-align: right;">Sayfa <span class="pageNumber"></span> / <span class="totalPages"></span></span>
 </div>`;
 
