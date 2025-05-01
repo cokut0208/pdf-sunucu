@@ -99,8 +99,8 @@ app.post('/api/generate-pdf', async (req, res) => {
 
         // --- Header ve Footer Şablonlarını Oluşturma ---
         const logoHtml = headerData.logoDataUri && typeof headerData.logoDataUri === 'string' && headerData.logoDataUri.startsWith('data:image/svg+xml;base64,')
-           ? `<img src="${headerData.logoDataUri}" style="height: 40px; width: auto; max-width: 150px; vertical-align: middle;">`
-           : '<span style="display: inline-block; width: 150px; height: 40px;"></span>'; // Logo yoksa veya geçersizse boşluk bırak
+           ? `<img src="${headerData.logoDataUri}" style="height: 55px; width: auto; max-width: 180px; vertical-align: middle;">`
+           : '<span style="display: inline-block; width: 180px; height: 55px;"></span>'; // Logo yoksa veya geçersizse boşluk bırak
 
         // Şirket bilgilerini headerData'dan al (frontend göndermeli)
         const companyDetailsHtml = `
@@ -132,7 +132,7 @@ app.post('/api/generate-pdf', async (req, res) => {
        // Footer (Sayfa No Sağda, Metin Solda)
        const footerHtml = `
 <div style="box-sizing: border-box; width: 100%; font-size: 8px; padding: 10px 50px 10px 50px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #cccccc; color: #777777; font-family: 'DejaVu Sans', Arial, sans-serif;">
-   <span style="text-align: left;">İşbu sözleşme elektronik ortamda oluşturulmuştur.</span>
+   <span style="text-align: left;">İşbu sözleşme ${headerData.generationDate} tarihinde elektronik ortamda oluşturulmuştur.</span>
    <span style="text-align: right;">Sayfa <span class="pageNumber"></span> / <span class="totalPages"></span></span>
 </div>`;
 
@@ -141,7 +141,7 @@ app.post('/api/generate-pdf', async (req, res) => {
         const pdfBuffer = await page.pdf({
             format: 'A4',
             printBackground: true,
-            margin: { top: '85px', right: '50px', bottom: '60px', left: '50px' },
+            margin: { top: '105px', right: '50px', bottom: '60px', left: '50px' },
             displayHeaderFooter: true,
             headerTemplate: headerHtml,
             footerTemplate: footerHtml,
